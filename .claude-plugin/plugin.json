@@ -1,0 +1,8 @@
+{
+  "name": "gearshift",
+  "version": "1.0.0",
+  "description": "Shifts Claude Code between Haiku, Sonnet and Opus by task: per turn in the main session, per subagent, and per workflow agent. Only uses models your account has.",
+  "author": { "name": "Sarvagya" },
+  "license": "MIT",
+  "keywords": ["model-routing", "haiku", "sonnet", "opus", "subagents", "workflows", "cost"]
+}

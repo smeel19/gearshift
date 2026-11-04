@@ -1,0 +1,31 @@
+{
+  "description": "Pick a model per turn, per subagent and per workflow agent",
+  "modules": ["./main-router.js"],
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node",
+            "args": ["${CLAUDE_PLUGIN_ROOT}/scripts/models.mjs", "--write", "--quiet"],
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Agent|Task|Workflow",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node",
+            "args": ["${CLAUDE_PLUGIN_ROOT}/scripts/route.mjs"],
+            "timeout": 5
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "models": {},
+  "main": {
+    "routing": { "mode": "per-turn", "cacheAware": true, "minTurnsBetweenSwitches": 2, "minConfidence": 0.5 },
+    "debuggingStrategy": "opus"
+  },
+  "subagents": {
+    "enabled": true,
+    "defaultTier": "sonnet",
+    "minMargin": 2,
+    "respectExplicitModel": true,
+    "autoApprove": false,
+    "routeWorkflows": true,
+    "workflowLog": false,
+    "log": true,
+    "agentTypes": { "Explore": "haiku", "Plan": "opus" },
+    "routeCustomAgents": [],
+    "extraKeywords": { "haiku": [], "sonnet": [], "opus": [] },
+    "tierMap": {}
+  }
+}

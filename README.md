@@ -12,6 +12,13 @@ No API calls, no network, no telemetry. Classification is keyword scoring that r
 
 ## Install
 
+From GitHub, in Claude Code:
+
+```
+/plugin marketplace add smeel19/gearshift
+/plugin install gearshift@gearshift
+```
+
 From a zip: unzip it somewhere permanent (Claude Code loads the plugin from that folder, so don't delete it), then in Claude Code:
 
 ```

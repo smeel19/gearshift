@@ -1,6 +1,9 @@
 {
   "name": "gearshift",
-  "owner": { "name": "Sarvagya" },
+  "owner": {
+    "name": "Sarvagya"
+  },
+  "description": "gearshift: routes Claude Code between Haiku, Sonnet and Opus by task, for the main session, subagents and workflows.",
   "plugins": [
     {
       "name": "gearshift",

@@ -12,21 +12,43 @@ No API calls, no network, no telemetry. Classification is keyword scoring that r
 
 ## Install
 
-From GitHub, in Claude Code:
+gearshift isn't in a public plugin marketplace, so you add it yourself. Pick one route; all of them install it for your Claude user profile, so every project and every new session gets it. You need Node 18+ and a Claude Code version with hook modules.
+
+### Route 1: from GitHub (no download)
+
+In Claude Code:
 
 ```
 /plugin marketplace add smeel19/gearshift
 /plugin install gearshift@gearshift
 ```
 
-From a zip: unzip it somewhere permanent (Claude Code loads the plugin from that folder, so don't delete it), then in Claude Code:
+### Route 2: from the zip
 
-```
-/plugin marketplace add /path/to/gearshift
-/plugin install gearshift@gearshift
-```
+1. Download `gearshift-1.0.0.zip` (from the GitHub repo's **Code > Download ZIP**, or from whoever shared it) and unzip it somewhere permanent, for example `~/claude-plugins/gearshift`. Claude Code loads the plugin from that folder, so don't delete or move it afterwards.
+2. Add it and install it for your user, in Claude Code:
 
-Or for one session: `claude --plugin-dir /path/to/gearshift`. Needs Node 18+ and a Claude Code version with hook modules. Start a new session after installing.
+   ```
+   /plugin marketplace add ~/claude-plugins/gearshift
+   /plugin install gearshift@gearshift
+   ```
+
+   Or in a terminal:
+
+   ```bash
+   claude plugin marketplace add ~/claude-plugins/gearshift
+   claude plugin install gearshift@gearshift --scope user
+   ```
+
+   (A GitHub "Download ZIP" unpacks to a folder named `gearshift-main`; use that folder's path instead.)
+
+### Check it, update it, remove it
+
+- **Check:** start a new session and type `/gear`. It shows the current model and the last decision. `claude plugin list` should show `gearshift@gearshift` as enabled.
+- **Update:** from GitHub, `claude plugin marketplace update gearshift` then `claude plugin update gearshift@gearshift`. From a zip, replace the unzipped folder's contents with the new version, then run the same two commands.
+- **Remove:** `claude plugin uninstall gearshift@gearshift` and `claude plugin marketplace remove gearshift`. Your settings and the model list live in `~/.claude/gearshift.json` and `~/.claude/gearshift/`; delete those too for a full clean-up.
+- **Try without installing:** `claude --plugin-dir ~/claude-plugins/gearshift` loads it for that one session only.
+- **Don't install it twice** (for example from GitHub and from a zip), or each request is routed twice.
 
 ## Use
 
